@@ -73,8 +73,8 @@ If you copied only source without `public/models`, `public/images`, or HDR from 
 
 ## Deployment
 
-1. `npm run build`
-2. Upload `dist/` to Netlify, Vercel, Cloudflare Pages, etc.
+1. `npm run build` (or rely on the GitHub Actions workflow).
+2. **GitHub Pages:** see [GitHub Pages](#github-pages) above.
 3. Ensure **HTTPS** (required for some CDN texture loads in `TechStack.tsx`).
 
 ## GSAP
@@ -108,4 +108,5 @@ Base experience derived from Akash Malhotra’s MIT-licensed portfolio; content,
 
 ## GitHub Pages
 
-Live site: **https://iraniaryan747.github.io/Portfolio_AryanIrani/** (deployed via `.github/workflows/deploy-github-pages.yml` on push to `main`).
+Pushes to `main` deploy via `.github/workflows/deploy-github-pages.yml`. In the GitHub repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.  
+Live URL: `https://<your-username>.github.io/<repository-name>/` (or your root domain if the repo is `<username>.github.io`).
