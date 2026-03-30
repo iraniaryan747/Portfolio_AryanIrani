@@ -105,3 +105,7 @@ Uses GSAP core with ScrollTrigger, ScrollSmoother, and SplitText. Follow [GSAP l
 ## Credit
 
 Base experience derived from Akash Malhotra’s MIT-licensed portfolio; content, copy, sections, and branding are tailored for Aryan Irani.
+
+## GitHub Pages
+
+Live site: **https://iraniaryan747.github.io/Portfolio_AryanIrani/** (deployed via `.github/workflows/deploy-github-pages.yml` on push to `main`).
