@@ -1,0 +1,113 @@
+.resume-embed-root {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: clamp(12px, 3vw, 28px);
+  pointer-events: none;
+}
+
+.resume-embed-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.resume-embed-panel {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  width: min(960px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0c0612;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+
+.resume-embed-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.resume-embed-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(234, 229, 236, 0.92);
+}
+
+.resume-embed-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resume-embed-link {
+  font-size: 0.85rem;
+  color: var(--accentColor, #14b8a6);
+  text-decoration: none;
+  opacity: 0.95;
+}
+
+.resume-embed-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.resume-embed-close {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(234, 229, 236, 0.95);
+  cursor: pointer;
+}
+
+.resume-embed-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.resume-embed-frame {
+  flex: 1;
+  width: 100%;
+  min-height: min(72vh, 820px);
+  border: none;
+  background: #1a1520;
+}
+
+@media screen and (max-width: 600px) {
+  .resume-embed-root {
+    padding: 0;
+  }
+
+  .resume-embed-panel {
+    width: 100%;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .resume-embed-frame {
+    min-height: calc(100vh - 58px);
+  }
+}

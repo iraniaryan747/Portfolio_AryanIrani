@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#115e59"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <path d="M80 620 C280 420 520 760 1120 520 L1120 800 L80 800 Z" fill="url(#a)" opacity="0.35"/>
+  <text x="80" y="140" fill="#eae5ec" font-family="system-ui,Segoe UI,sans-serif" font-size="42" font-weight="600">AI Trainer</text>
+  <text x="80" y="200" fill="#94a3b8" font-family="system-ui,Segoe UI,sans-serif" font-size="22">Replace with demo still · IEEE line</text>
+</svg>
