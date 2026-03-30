@@ -1,5 +1,9 @@
-# Build and deploy to GitHub Pages (repo: Portfolio_AryanIrani)
-# After first push: Repo Settings → Pages → Build and deployment → Source: GitHub Actions
+# Build and deploy to GitHub Pages for any repo.
+#
+# - Project site: https://<owner>.github.io/<repo>/
+# - User/org site: repo named <owner>.github.io → served at https://<owner>.github.io/
+#
+# First-time: Settings → Pages → Build and deployment → Source: GitHub Actions
 
 name: Deploy GitHub Pages
 
@@ -25,11 +29,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+
+      - name: Build
+        env:
+          GITHUB_PAGES_BASE: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
+        run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
