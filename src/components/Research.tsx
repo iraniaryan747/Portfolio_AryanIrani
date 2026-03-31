@@ -5,8 +5,8 @@ const Research = () => {
   return (
     <div className="research-section section-container" id="research">
       <div className="research-container">
-        <h2 className="title">
-          Research <span>&</span>
+        <h2 className="research-heading">
+          Research <span>&amp;</span>
           <br /> publications
         </h2>
         <div className="research-info">
