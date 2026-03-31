@@ -187,9 +187,10 @@
   margin: 0;
   letter-spacing: 2px;
   font-size: 28px;
-  line-height: 28px;
+  line-height: 1.1;
   font-weight: 500;
   font-family: "Geist", sans-serif;
+  white-space: nowrap;
 }
 
 /* .landing-intro h1 span {
@@ -213,53 +214,40 @@
   margin: 0;
 }
 
-.landing-info h2 {
+.landing-rotator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(14px, 2.2vh, 32px);
+  margin-top: clamp(6px, 1vh, 14px);
+  margin-left: 4px;
+}
+
+.landing-rotator-line {
   margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
+  padding: 0;
+  position: relative;
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.15;
+  min-height: 1.2em;
 }
 
-.landing-h2-info-1 {
-  position: absolute;
-  top: 0;
+.landing-rotator-inner {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
-h2.landing-info-h2 {
+.landing-rotator-line--accent {
   color: #14b8a6;
-  font-size: 42px;
-  width: 120%;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  position: relative;
-  margin-left: -5px;
+  font-size: 38px;
 }
 
-.landing-h2-2 {
-  position: absolute;
-  top: 0;
-}
-
-.landing-info-h2::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 120%;
-  z-index: 3;
-  background-image: linear-gradient(0deg,
-      var(--backgroundColor) 40%,
-      rgba(0, 0, 0, 0) 110%);
-  top: 0;
-  left: 0;
+.landing-rotator-line--light {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 32px;
 }
 
 @media screen and (min-width: 500px) {
@@ -284,13 +272,12 @@ h2.landing-info-h2 {
     line-height: 30px;
   }
 
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
+  .landing-rotator-line--accent {
+    font-size: 38px;
   }
 
-  h2.landing-info-h2 {
-    font-size: 38px;
+  .landing-rotator-line--light {
+    font-size: 30px;
   }
 }
 
@@ -305,20 +292,19 @@ h2.landing-info-h2 {
 
   .landing-intro h1 {
     font-size: 40px;
-    line-height: 35px;
+    line-height: 1.1;
   }
 
   .landing-info h3 {
     font-size: 25px;
   }
 
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
+  .landing-rotator-line--accent {
+    font-size: 55px;
   }
 
-  h2.landing-info-h2 {
-    font-size: 55px;
+  .landing-rotator-line--light {
+    font-size: 45px;
   }
 }
 
@@ -379,19 +365,84 @@ h2.landing-info-h2 {
 
   .landing-intro h1 {
     font-size: 60px;
-    line-height: 55px;
+    line-height: 1.05;
   }
 
   .landing-info h3 {
     font-size: 35px;
   }
 
-  .landing-info h2 {
-    font-size: 65px;
-    line-height: 62px;
+  .landing-rotator-line--accent {
+    font-size: 75px;
   }
 
-  h2.landing-info-h2 {
-    font-size: 75px;
+  .landing-rotator-line--light {
+    font-size: 65px;
+  }
+}
+
+/* Minimal first-visit scroll cue (hidden after scroll / wheel) */
+.landing-scroll-hint {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(20px, 3.5vh, 36px);
+  transform: translateX(-50%);
+  z-index: 14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  pointer-events: none;
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(234, 229, 236, 0.38);
+  opacity: 0;
+  animation: landingScrollHintReveal 0.85s ease 2.4s forwards;
+}
+
+.landing-scroll-hint-label {
+  display: block;
+}
+
+.landing-scroll-hint-chevron {
+  width: 6px;
+  height: 6px;
+  margin-top: -2px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  animation: landingScrollHintBounce 2s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes landingScrollHintReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes landingScrollHintBounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(45deg) translateY(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-scroll-hint {
+    animation: none;
+    opacity: 0.42;
+    animation-delay: 0s;
+  }
+
+  .landing-scroll-hint-chevron {
+    animation: none;
   }
 }

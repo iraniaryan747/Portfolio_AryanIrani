@@ -6,15 +6,14 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About</h3>
         <p className="para">
-          I operate where rigor meets velocity: from the Managing Director&apos;s
-          Office at HDFC AMC, shipping FundIQ, a Power BI knowledge spine, and an
-          intranet that moved the needle, to the Occupational Ergonomics Lab at RIT,
-          where I align RealSense stacks, tighten calibration loops, and support
-          AI-driven posture workflows. I&apos;m a systems thinker who translates
-          executive priorities into measurable KPIs, then builds the pipelines,
-          models, and narratives that make them real. Former MCA pathway cricketer,
-          overseas club athlete, and house-music obsessive; discipline from sport,
-          range from ops, depth from research.
+          I operate where systems, data, and execution meet. At HDFC AMC, I
+          worked inside the Managing Director&apos;s Office building dashboards,
+          AI tools, and knowledge systems that translated strategy into measurable
+          outcomes. At RIT&apos;s Occupational Ergonomics Lab, I work on
+          human–robot collaboration and AI-driven posture analysis, combining
+          multi-camera sensing, calibration, and motion-based modeling. I think in
+          systems, build with intent, and care about work that holds up in real
+          environments.
         </p>
       </div>
     </div>

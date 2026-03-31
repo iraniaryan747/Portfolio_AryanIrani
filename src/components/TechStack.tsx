@@ -261,11 +261,13 @@ const TechStack = () => {
 
   return (
     <div className="techstack" id="skills">
-      <h2 className="title">Stack &amp; velocity</h2>
-      <p className="techstack-lede">
-        Power BI, Python, SQL, OpenCV, MediaPipe, deep learning, ETL pipelines,
-        dashboard systems, and AI-assisted research workflows
-      </p>
+      <div className="techstack-copy">
+        <h2 className="title">Stack &amp; velocity</h2>
+        <p className="techstack-lede">
+          Power BI, Python, SQL, OpenCV, MediaPipe, deep learning, ETL
+          pipelines, dashboard systems, and AI-assisted research workflows
+        </p>
+      </div>
 
       <div className="techstack-canvas-wrap">
         <Canvas

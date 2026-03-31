@@ -33,32 +33,29 @@ export function initialFX() {
     }
   );
 
-  let TextProps = { type: "chars,lines", linesClass: "split-h2" };
-
-  var landingText2 = new SplitText(".landing-h2-info", TextProps);
   gsap.fromTo(
-    landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    ".landing-rotator",
+    { opacity: 0, y: 28 },
     {
       opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
+      duration: 1.1,
+      ease: "power2.out",
       y: 0,
-      stagger: 0.025,
-      delay: 0.3,
+      delay: 0.85,
     }
   );
 
   gsap.fromTo(
-    ".landing-info-h2",
-    { opacity: 0, y: 30 },
+    ".landing-rotator-inner",
+    { opacity: 0, y: 36, filter: "blur(6px)" },
     {
       opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
+      duration: 1.05,
+      filter: "blur(0px)",
+      ease: "power3.out",
       y: 0,
-      delay: 0.8,
+      stagger: 0.12,
+      delay: 0.9,
     }
   );
   gsap.fromTo(
@@ -72,66 +69,4 @@ export function initialFX() {
     }
   );
 
-  var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
-  var landingText4 = new SplitText(".landing-h2-1", TextProps);
-  var landingText5 = new SplitText(".landing-h2-2", TextProps);
-
-  LoopText(landingText2, landingText3);
-  // Offset the second loop so both layers don't land on the same word at the same time.
-  LoopText(landingText4, landingText5, 2);
-}
-
-function LoopText(Text1: SplitText, Text2: SplitText, offset = 0) {
-  var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-  const delay = 4 + offset;
-  const delay2 = delay * 2 + 1;
-
-  tl.fromTo(
-    Text2.chars,
-    { opacity: 0, y: 80 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.1,
-      delay: delay,
-    },
-    0
-  )
-    .fromTo(
-      Text1.chars,
-      { y: 80 },
-      {
-        duration: 1.2,
-        ease: "power3.inOut",
-        y: 0,
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
-    )
-    .fromTo(
-      Text1.chars,
-      { y: 0 },
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay,
-      },
-      0
-    )
-    .to(
-      Text2.chars,
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
-    );
 }

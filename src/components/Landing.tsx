@@ -1,5 +1,7 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
+import LandingHeadlineRotator from "./LandingHeadlineRotator";
+import LandingScrollHint from "./LandingScrollHint";
 
 const Landing = ({ children }: PropsWithChildren) => {
   return (
@@ -9,23 +11,15 @@ const Landing = ({ children }: PropsWithChildren) => {
           <div className="landing-intro">
             <h2>Hello! I&apos;m</h2>
             <h1>
-              ARYAN
-              <br />
-              <span>IRANI</span>
+              ARYAN <span>IRANI</span>
             </h1>
           </div>
           <div className="landing-info">
             <h3>M.S. Engineering Management · RIT &amp;</h3>
-            <h2 className="landing-info-h2">
-              <div className="landing-h2-1">Systems</div>
-              <div className="landing-h2-2">Research</div>
-            </h2>
-            <h2>
-              <div className="landing-h2-info">Research</div>
-              <div className="landing-h2-info-1">Systems</div>
-            </h2>
+            <LandingHeadlineRotator />
           </div>
         </div>
+        <LandingScrollHint />
         {children}
       </div>
     </>

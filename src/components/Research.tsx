@@ -16,10 +16,25 @@ const Research = () => {
           <div className="research-info-box">
             <div className="research-info-in">
               <div>
+                <h4>Active Lab Threads</h4>
+                <h5>RIT · Ergonomics &amp; human-robot collaboration</h5>
+              </div>
+              <h3>NOW</h3>
+            </div>
+            <p>
+              Multi-camera RealSense calibration, depth fidelity pushes, and
+              AI-assisted posture pipelines that have to survive messy rooms,
+              not pristine datasets. Mapping how sensing, models, and operator
+              trust co-evolve.
+            </p>
+          </div>
+          <div className="research-info-box">
+            <div className="research-info-in">
+              <div>
                 <h4>AI Trainer</h4>
                 <h5>IEEE Xplore · Vol. 11 · Oct 2023</h5>
               </div>
-              <h3>23</h3>
+              <h3>2023</h3>
             </div>
             <p>
               Autoencoder-Based Approach for Squat Analysis and Correction:
@@ -40,7 +55,7 @@ const Research = () => {
                 <h4>Archimedes&apos; Rocket Launch</h4>
                 <h5>Int. Journal of Engineering Inventions · Oct 2017</h5>
               </div>
-              <h3>17</h3>
+              <h3>2017</h3>
             </div>
             <p>
               The New Age Proposal: systems thinking on propulsion narratives,
@@ -53,21 +68,6 @@ const Research = () => {
               >
                 Journal PDF
               </a>
-            </p>
-          </div>
-          <div className="research-info-box">
-            <div className="research-info-in">
-              <div>
-                <h4>Active Lab Threads</h4>
-                <h5>RIT · Ergonomics &amp; human-robot collaboration</h5>
-              </div>
-              <h3>NOW</h3>
-            </div>
-            <p>
-              Multi-camera RealSense calibration, depth fidelity pushes, and
-              AI-assisted posture pipelines that have to survive messy rooms,
-              not pristine datasets. Mapping how sensing, models, and operator
-              trust co-evolve.
             </p>
           </div>
         </div>

@@ -113,6 +113,17 @@ body {
   margin-bottom: -100px;
 }
 
+/* Shared column so title + keywords share the same measure and alignment */
+.techstack-copy {
+  position: relative;
+  z-index: 2;
+  width: min(52rem, 92%);
+  margin-inline: auto;
+  padding: clamp(40px, 6vh, 72px) clamp(16px, 4%, 32px) 0;
+  text-align: center;
+  pointer-events: none;
+}
+
 .techstack h2.title,
 .techstack h2 {
   position: relative;
@@ -120,7 +131,7 @@ body {
   left: auto;
   width: 100%;
   margin: 0;
-  padding: clamp(40px, 6vh, 72px) 4% 0;
+  padding: 0;
   text-align: center;
   font-size: 80px;
   font-weight: 400;
@@ -133,10 +144,10 @@ body {
 .techstack-lede {
   position: relative;
   z-index: 2;
-  margin: clamp(10px, 2vh, 18px) auto 0;
-  padding: 0 4% clamp(28px, 4vh, 48px);
-  width: 92%;
-  max-width: 52rem;
+  margin: clamp(10px, 2vh, 18px) 0 0;
+  padding: 0 0 clamp(28px, 4vh, 48px);
+  width: 100%;
+  max-width: none;
   text-align: center;
   font-size: clamp(13px, 1.15vw, 16px);
   font-weight: 300;
@@ -162,15 +173,18 @@ body {
 }
 
 @media screen and (max-width: 900px) {
+  .techstack-copy {
+    width: min(52rem, 94%);
+    padding-top: 32px;
+  }
+
   .techstack h2.title,
   .techstack h2 {
     font-size: 40px;
-    padding-top: 32px;
   }
 
   .techstack-lede {
     font-size: 13px;
-    max-width: 95%;
     line-height: 1.55;
   }
 }

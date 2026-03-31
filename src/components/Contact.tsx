@@ -10,7 +10,7 @@ const Contact = () => {
       <div className="contact-container">
         <h3>Contact</h3>
         <div className="contact-flex">
-          <div className="contact-box">
+          <div className="contact-box contact-main">
             <h4>Direct</h4>
             <p>
               <a
@@ -47,48 +47,50 @@ const Contact = () => {
               Manipal).
             </p>
           </div>
-          <div className="contact-box">
-            <h4>Social</h4>
-            <a
-              href={LINKS.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              LinkedIn <MdArrowOutward />
-            </a>
-            <a
-              href={LINKS.email}
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Email <MdArrowOutward />
-            </a>
-            <a
-              href={LINKS.resumePdf}
-              data-cursor="disable"
-              className="contact-social"
-              onClick={(e) => {
-                e.preventDefault();
-                openResume();
-              }}
-            >
-              Résumé <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
-            <h2>
-              Built for momentum, <br /> <span>Aryan Irani</span>
-            </h2>
-            <h5>
-              <MdCopyright /> {new Date().getFullYear()}
-            </h5>
-            <p className="contact-tagline">
-              Product · strategy · consulting · ops · innovation ·
-              leadership tracks. Cricket-hardened execution, house-music
-              energy, research-grade curiosity.
-            </p>
+          <div className="contact-rhs">
+            <div className="contact-box contact-social-col">
+              <h4>Social</h4>
+              <a
+                href={LINKS.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="disable"
+                className="contact-social"
+              >
+                LinkedIn <MdArrowOutward className="contact-social-icon" />
+              </a>
+              <a
+                href={LINKS.email}
+                data-cursor="disable"
+                className="contact-social"
+              >
+                Email <MdArrowOutward className="contact-social-icon" />
+              </a>
+              <a
+                href={LINKS.resumePdf}
+                data-cursor="disable"
+                className="contact-social"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openResume();
+                }}
+              >
+                Résumé <MdArrowOutward className="contact-social-icon" />
+              </a>
+            </div>
+            <div className="contact-box contact-tagline-col">
+              <h2>
+                Built for momentum, <br /> <span>Aryan Irani</span>
+              </h2>
+              <h5>
+                <MdCopyright /> {new Date().getFullYear()}
+              </h5>
+              <p className="contact-tagline">
+                Product · strategy · consulting · ops · innovation ·
+                leadership tracks. Cricket-hardened execution, house-music
+                energy, research-grade curiosity.
+              </p>
+            </div>
           </div>
         </div>
       </div>

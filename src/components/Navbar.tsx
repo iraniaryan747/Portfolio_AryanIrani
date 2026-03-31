@@ -4,7 +4,6 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
-import { LINKS } from "../config/placeholders";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
@@ -46,19 +45,15 @@ const Navbar = () => {
         <a href="/#" className="navbar-title" data-cursor="disable">
           AI
         </a>
-        <a
-          href={LINKS.linkedin}
-          className="navbar-connect"
-          data-cursor="disable"
-          target="_blank"
-          rel="noreferrer"
-        >
-          linkedin.com/in/aryan-irani7474
-        </a>
         <ul>
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#what-i-build" href="#what-i-build">
+              <HoverLinks text="WHAT I BUILD" />
             </a>
           </li>
           <li>
@@ -73,7 +68,7 @@ const Navbar = () => {
           </li>
           <li>
             <a data-href="#research" href="#research">
-              <HoverLinks text="LAB" />
+              <HoverLinks text="RESEARCH" />
             </a>
           </li>
           <li>
