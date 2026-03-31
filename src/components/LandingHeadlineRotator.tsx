@@ -1,31 +1,14 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-/** Expand anytime; each tick picks a random word (not sequential through this list). */
-const HEADLINE_WORDS = [
-  "Systems",
-  "Research",
-  "Execution",
-  "Analytics",
-  "Strategy",
-  "Operations",
-  "Product",
-  "Leadership",
-  "Innovation",
+const HEADLINE_PAIRS = [
+  ["AI SYSTEMS", "REAL-WORLD EXECUTION"],
+  ["DATA SYSTEMS", "FROM DATA TO DECISION"],
+  ["HUMANS <> ROBOTS", "SYSTEMS THINKING"],
+  ["COMPUTER VISION", "BUILD > THEORY"],
+  ["INTELLIGENT SYSTEMS", "OPERATOR MINDSET"],
+  ["DECISION SYSTEMS", "END-TO-END OWNERSHIP"],
 ] as const;
-
-function pickRandomDifferent(
-  current: string,
-  pool: readonly string[]
-): string {
-  if (pool.length <= 1) return pool[0];
-  let next = pool[Math.floor(Math.random() * pool.length)];
-  let guard = 0;
-  while (next === current && guard++ < 32) {
-    next = pool[Math.floor(Math.random() * pool.length)];
-  }
-  return next;
-}
 
 function animateWordSwap(
   el: HTMLElement,
@@ -55,54 +38,42 @@ function animateWordSwap(
 }
 
 const LOOP_START_MS = 5600;
+const ROTATE_EVERY_MS = 4600;
+const SECOND_LINE_OFFSET_MS = 900;
 
 const LandingHeadlineRotator = () => {
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
-  const w1 = useRef("");
-  const w2 = useRef("");
+  const pairIndex = useRef(0);
   const mountedRef = useRef(true);
-
-  const [initial1, initial2] = useMemo(() => {
-    const a = pickRandomDifferent("", [...HEADLINE_WORDS]);
-    const b = pickRandomDifferent(a, [...HEADLINE_WORDS]);
-    return [a, b];
-  }, []);
-
-  useEffect(() => {
-    w1.current = initial1;
-    w2.current = initial2;
-  }, [initial1, initial2]);
 
   useEffect(() => {
     mountedRef.current = true;
     const alive = () => mountedRef.current;
-    const interval1 = { current: undefined as number | undefined };
-    const interval2 = { current: undefined as number | undefined };
+    const interval = { current: undefined as number | undefined };
+    const line2SwapTimeout = { current: undefined as number | undefined };
 
     const startTimer = window.setTimeout(() => {
-      interval1.current = window.setInterval(() => {
-        const el = line1Ref.current;
-        if (!el) return;
-        const next = pickRandomDifferent(w1.current, HEADLINE_WORDS);
-        w1.current = next;
-        animateWordSwap(el, next, alive);
-      }, 4200);
+      interval.current = window.setInterval(() => {
+        pairIndex.current = (pairIndex.current + 1) % HEADLINE_PAIRS.length;
+        const [next1, next2] = HEADLINE_PAIRS[pairIndex.current];
+        const el1 = line1Ref.current;
+        const el2 = line2Ref.current;
 
-      interval2.current = window.setInterval(() => {
-        const el = line2Ref.current;
-        if (!el) return;
-        const next = pickRandomDifferent(w2.current, HEADLINE_WORDS);
-        w2.current = next;
-        animateWordSwap(el, next, alive);
-      }, 5100);
+        if (el1) animateWordSwap(el1, next1, alive);
+        line2SwapTimeout.current = window.setTimeout(() => {
+          if (el2) animateWordSwap(el2, next2, alive);
+        }, SECOND_LINE_OFFSET_MS);
+      }, ROTATE_EVERY_MS);
     }, LOOP_START_MS);
 
     return () => {
       mountedRef.current = false;
       window.clearTimeout(startTimer);
-      if (interval1.current !== undefined) window.clearInterval(interval1.current);
-      if (interval2.current !== undefined) window.clearInterval(interval2.current);
+      if (line2SwapTimeout.current !== undefined) {
+        window.clearTimeout(line2SwapTimeout.current);
+      }
+      if (interval.current !== undefined) window.clearInterval(interval.current);
     };
   }, []);
 
@@ -110,12 +81,12 @@ const LandingHeadlineRotator = () => {
     <div className="landing-rotator" aria-live="polite">
       <h2 className="landing-rotator-line landing-rotator-line--accent">
         <span ref={line1Ref} className="landing-rotator-inner">
-          {initial1}
+          {HEADLINE_PAIRS[0][0]}
         </span>
       </h2>
       <h2 className="landing-rotator-line landing-rotator-line--light">
         <span ref={line2Ref} className="landing-rotator-inner">
-          {initial2}
+          {HEADLINE_PAIRS[0][1]}
         </span>
       </h2>
     </div>

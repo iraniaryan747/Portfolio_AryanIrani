@@ -13,9 +13,17 @@ const Landing = ({ children }: PropsWithChildren) => {
             <h1>
               ARYAN <span>IRANI</span>
             </h1>
+            <p className="landing-intro-subline">
+              i build systems across ai, data, and human-robot collaboration
+            </p>
           </div>
           <div className="landing-info">
-            <h3>M.S. Engineering Management · RIT &amp;</h3>
+            <h3>
+              <span className="landing-degree">M.S. Engineering Management</span>
+              <span className="landing-school">
+                Rochester Institute of Technology
+              </span>
+            </h3>
             <LandingHeadlineRotator />
           </div>
         </div>
