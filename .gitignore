@@ -33,3 +33,5 @@ backup/
 
 # Local scratch
 test.js
+.vercel
+.env*.local
