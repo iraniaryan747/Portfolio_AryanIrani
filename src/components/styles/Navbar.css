@@ -29,6 +29,15 @@
   color: #ccc;
   font-weight: 600;
   cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.header ul li.nav-item-active {
+  color: var(--accentColor, #14b8a6);
+}
+
+.header ul li.nav-item-active .hover-in {
+  color: var(--accentColor, #14b8a6);
 }
 .navbar-title {
   font-weight: 700;
@@ -46,6 +55,14 @@
   }
   .header ul li {
     color: #eae5ec;
+  }
+
+  .header ul li.nav-item-active {
+    color: var(--accentColor, #14b8a6);
+  }
+
+  .header ul li.nav-item-active .hover-in {
+    color: var(--accentColor, #14b8a6);
   }
   .navbar-title {
     font-size: 16px;
